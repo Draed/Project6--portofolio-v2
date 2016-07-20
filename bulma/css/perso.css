@@ -1,3 +1,5 @@
+
+/*Expertise Page*/
 .timeline {
   list-style: none;
   padding: 20px 0 20px;
@@ -98,6 +100,7 @@
   left: -14px;
   right: auto;
 }
+/*from http://www.color-hex.com/color/999999*/
 .timeline-badge.one {
   background-color: #898989 !important;
 }
@@ -127,11 +130,19 @@
 .timeline-body > p + p {
   margin-top: 5px;
 }
-
 .fac {
   margin-top: 25%;
 }
 
 .fa-calendar {
   margin-right: 2%;
+}
+
+/*Skill page*/
+
+/*Centering the gauge*/
+#canvas {
+  display: block;
+  width: 300px;
+  margin: 100px auto;
 }
