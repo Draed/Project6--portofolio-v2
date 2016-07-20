@@ -1,7 +1,9 @@
 <html>
     <head>
         <title>test</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="bulma/css/bulma.css">
+        <link rel="stylesheet" type="text/css" href="bulma/css/perso.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <script src="http://www.w3schools.com/lib/w3data.js"></script>
     </head>
@@ -13,6 +15,75 @@
 			<div class="hero-body">
 				<div class="container is-dark has-text-centered">
 				    <h1 class="title is-1">Expertise Page</h1>
+				<!-- timeline -->
+				<div class="container">
+			    <div class="page-header">
+			        <h1 id="timeline">Timeline</h1>
+			    </div>
+			    <ul class="timeline">
+			        <li>
+			          <div class="timeline-badge"><i class="fac fa fa-users" aria-hidden="true"></i></i></div>
+			          <div class="timeline-panel">
+			            <div class="timeline-heading">
+			              <h4 class="timeline-title"><strong>Chef de projet MOE</strong></h4>
+			              <p><i class="fa fa-calendar" aria-hidden="true">  </i>Date 1</small></p>
+			            </div>
+			            <div class="timeline-body">
+			              <p>Description 1</p>
+			            </div>
+			          </div>
+			        </li>
+
+			        <li class="timeline-inverted">
+			          <div class="timeline-badge one"><i class="fac fa fa-graduation-cap" aria-hidden="true"></i></div>
+			          <div class="timeline-panel">
+			            <div class="timeline-heading">
+			              <h4 class="timeline-title"><strong>BAC +3 : Licence Professionnelle ASUR</strong></h4>
+			            </div>
+			            <div class="timeline-body">
+			              <p>Desription 2</p>
+			            </div>
+			          </div>
+			        </li>
+
+			        <li>
+			          <div class="timeline-badge two"><i class="fac fa fa-users" aria-hidden="true"></i></i></div>
+			          <div class="timeline-panel">
+			            <div class="timeline-heading">
+			              <h4 class="timeline-title"><strong>Stage fin d'étude DSI mairie de saint-pierre</strong></h4>
+			            </div>
+			            <div class="timeline-body">
+			              <p>Description 3</p>
+			            </div>
+			          </div>
+			        </li>
+
+			        <li class="timeline-inverted">
+			          <div class="timeline-badge three"><i class="fac fa fa-graduation-cap" aria-hidden="true"></i></div>
+			          <div class="timeline-panel">
+			            <div class="timeline-heading">
+			              <h4 class="timeline-title"><strong>BAC +2 : DUT Réseaux et Télécommunications</strong></h4>
+			            </div>
+			            <div class="timeline-body">
+			              <p>Description 4</p>
+			            </div>
+			          </div>
+			        </li>
+
+			        <li>
+			          <div class="timeline-badge four"><i class="fac fa fa-graduation-cap" aria-hidden="true"></i></div>
+			          <div class="timeline-panel">
+			            <div class="timeline-heading">
+			              <h4 class="timeline-title"><strong>BAC S : Option Mathématiques</strong></h4>
+			            </div>
+			            <div class="timeline-body">
+			              <p>Description 5</p>
+			            </div>
+			          </div>
+			        </li>
+			    </ul>
+			</div>
+			<!-- end of timeline -->
 				</div>
 			</div>
 
@@ -21,5 +92,13 @@
     </body>
     <script>
 		w3IncludeHTML();
+
+		$(window).on('scroll', function(){
+			$timeline_block.each(function(){
+				if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+					$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+				}
+			});
+		});
 	</script>
 </html>
