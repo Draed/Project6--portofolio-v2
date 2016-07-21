@@ -2,10 +2,11 @@
     <head>
         <title>test</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="bulma/css/bulma.css">
         <link rel="stylesheet" type="text/css" href="bulma/css/perso.css">
+        <link rel="stylesheet" type="text/css" href="bulma/css/bulma.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <script src="http://www.w3schools.com/lib/w3data.js"></script>
+        <script src="bulma/script/perso.js"></script>
     </head>
     <body>
     	<section class="hero is-fullheight is-dark is-bold">
@@ -17,8 +18,86 @@
 				    <h1 class="title is-1">Skills Page</h1>
 
 				    <!-- tree -->
-				    <canvas id="canvas" width="600" height="600">
-				    <canvas id="canvas2" width="600" height="600">
+				   <main>
+					  <!-- SVG chart -->
+					  <div class="pie-yum">
+					    <svg width="100" height="100" viewBox="0 0 32 32">
+					      <title>Circle representing a pie chart with a 38% value</title>
+					      <circle r="16" cx="16" cy="16" fill="#42afe3" stroke="#222324" stroke-width="32" stroke-dasharray="18 100" />
+					      <!-- stroke-dasharray value = "percentage" of light pink -->
+					    </svg>
+					    <span class="value">38%</span>
+					  </div>
+					  <!-- SVG chart -->
+					  <div class="pie-yum">        
+					    <svg width="100" height="100" viewBox="0 0 32 32">
+					      <title>Circle representing a pie chart with a 70% value</title>
+					      <circle r="16" cx="16" cy="16" fill="#ed6c63" stroke="#222324" stroke-width="32" stroke-dasharray="70 100" />
+					      <!-- stroke-dasharray value = "percentage" of light pink -->
+					    </svg>
+					    <span class="value">70%</span>
+					  </div>
+
+					   <!-- SVG chart -->
+					  <div class="pie-yum">        
+					    <svg width="100" height="100" viewBox="0 0 32 32">
+					      <title>Circle representing a pie chart with a 70% value</title>
+					      <circle r="16" cx="16" cy="16" fill="#97cd76" stroke="#222324" stroke-width="32" stroke-dasharray="70 100" />
+					      <!-- stroke-dasharray value = "percentage" of light pink -->
+					    </svg>
+					    <span class="value">70%</span>
+					  </div>
+
+					   <!-- SVG chart -->
+					  <div class="pie-yum">        
+					    <svg width="100" height="100" viewBox="0 0 32 32">
+					      <title>Circle representing a pie chart with a 70% value</title>
+					      <circle r="16" cx="16" cy="16" fill="#f68b39" stroke="#222324" stroke-width="32" stroke-dasharray="70 100" />
+					      <!-- stroke-dasharray value = "percentage" of light pink -->
+					    </svg>
+					    <span class="value">70%</span>
+					  </div>
+
+					  <!-- SVG chart -->
+					  <div class="pie-yum">        
+					    <svg width="100" height="100" viewBox="0 0 32 32">
+					      <title>Circle representing a pie chart with a 70% value</title>
+					      <circle r="16" cx="16" cy="16" fill="#847bb9" stroke="#222324" stroke-width="32" stroke-dasharray="70 100" />
+					      <!-- stroke-dasharray value = "percentage" of light pink -->
+					    </svg>
+					    <span class="value">70%</span>
+					  </div>
+
+					  <!-- SVG chart -->
+					  <div class="pie-yum">        
+					    <svg width="100" height="100" viewBox="0 0 32 32">
+					      <title>Circle representing a pie chart with a 70% value</title>
+					      <circle r="16" cx="16" cy="16" fill="#1fc8db" stroke="#222324" stroke-width="32" stroke-dasharray="70 100" />
+					      <!-- stroke-dasharray value = "percentage" of light pink -->
+					    </svg>
+					    <span class="value">70%</span>
+					  </div>
+
+					  <!-- SVG chart -->
+					  <div class="pie-yum">        
+					    <svg width="100" height="100" viewBox="0 0 32 32">
+					      <title>Circle representing a pie chart with a 70% value</title>
+					      <circle r="16" cx="16" cy="16" fill="#fce473" stroke="#222324" stroke-width="32" stroke-dasharray="70 100" />
+					      <!-- stroke-dasharray value = "percentage" of light pink -->
+					    </svg>
+					    <span class="value">70%</span>
+					  </div>
+
+					<!-- SVG chart -->
+					  <div class="pie-yum">        
+					    <svg width="100" height="100" viewBox="0 0 32 32">
+					      <title>Circle representing a pie chart with a 70% value</title>
+					      <circle r="16" cx="16" cy="16" fill="#f5f7fa" stroke="#222324" stroke-width="32" stroke-dasharray="70 100" />
+					      <!-- stroke-dasharray value = "percentage" of light pink -->
+					    </svg>
+					    <span class="value">70%</span>
+					  </div>
+					</main>
 				    <!-- end tree -->
 				</div>	
 			</div>
@@ -26,93 +105,9 @@
 			<div w3-include-html="footer.html"></div>
 		</section>
     </body>
-    <script>
+    <script type="text/javascript">
 		w3IncludeHTML();
-		window.onload = function(){
-	//canvas initialization
-	var canvas = document.getElementById("canvas");
-	var ctx = canvas.getContext("2d");
-	//dimensions
-	var W = canvas.width;
-	var H = canvas.height;
-	//Variables
-	var degrees = 0;
-	var new_degrees = 0;
-	var difference = 0;
-	var color = "#ed6c63";
-	var bgcolor = "#222";
-	var text;
-	var animation_loop, redraw_loop;
-	
-	function init()
-	{
-		//Clear the canvas everytime a chart is drawn
-		ctx.clearRect(0, 0, W, H);
-		
-		//Background 360 degree arc
-		ctx.beginPath();
-		ctx.strokeStyle = bgcolor;
-		ctx.lineWidth = 30;
-		ctx.arc(W/2, H/2, 100, 0, Math.PI*2, false); //you can see the arc now
-		ctx.stroke();
-		
-		//gauge will be a simple arc
-		//Angle in radians = angle in degrees * PI / 180
-		var radians = degrees * Math.PI / 180;
-		ctx.beginPath();
-		ctx.strokeStyle = color;
-		ctx.lineWidth = 30;
-		//The arc starts from the rightmost end. If we deduct 90 degrees from the angles
-		//the arc will start from the topmost end
-		ctx.arc(W/2, H/2, 100, 0 - 90*Math.PI/180, radians - 90*Math.PI/180, false); 
-		//you can see the arc now
-		ctx.stroke();
-		
-		//Lets add the text
-		ctx.fillStyle = color;
-		ctx.font = "50px bebas";
-		text = Math.floor(degrees/360*100) + "%";
-		//Lets center the text
-		//deducting half of text width from position x
-		text_width = ctx.measureText(text).width;
-		//adding manual value to position y since the height of the text cannot
-		//be measured easily. There are hacks but we will keep it manual for now.
-		ctx.fillText(text, W/2 - text_width/2, H/2 + 15);
-	}
-	
-	function draw()
-	{
-		//Cancel any movement animation if a new chart is requested
-		if(typeof animation_loop != undefined) clearInterval(animation_loop);
-		
-		new_degrees = Math.round(0.51*360);
-		difference = new_degrees - degrees;
-		//This will animate the gauge to new positions
-		//The animation will take 1 second
-		//time for each frame is 1sec / difference in degrees
-		animation_loop = setInterval(animate_to, 1000/difference);
-	}
-	
-	//function to make the chart move to new degrees
-	function animate_to()
-	{
-		//clear animation loop if degrees reaches to new_degrees
-		if(degrees == new_degrees) 
-			clearInterval(animation_loop);
-		
-		if(degrees < new_degrees)
-			degrees++;
-		else
-			degrees--;
-			
-		init();
-	}
-	
-	//Lets add some animation for fun
-	draw();
-	
-	
-	
-}
+		// tree code 
+		// end tree code
 	</script>
 </html>
