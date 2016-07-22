@@ -1260,7 +1260,7 @@ a.box:active {
 }
 
 .content a:not(.button):visited {
-  color: #f5f7fa;
+  color: #939496 ;
 }
 
 .content a:not(.button):hover {
@@ -2493,7 +2493,7 @@ a.box:active {
 }
 
 .title {
-  color: #222324;
+  color: #1b1c1c;
   font-size: 28px;
   line-height: 1;
 }
@@ -3078,6 +3078,7 @@ a.box:active {
   max-width: 100%;
   position: relative;
   width: 300px;
+  margin: 10px;
 }
 
 .card .media:not(:last-child) {
@@ -6662,7 +6663,7 @@ a.panel-block:hover {
 }
 
 .footer a, .footer a:visited {
-  color: #69707a;
+  color: #34383D;
 }
 
 .footer a:hover, .footer a:visited:hover {
