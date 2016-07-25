@@ -2887,6 +2887,7 @@ a.box:active {
   padding-right: 10px;
   vertical-align: top;
   white-space: nowrap;
+  margin-top: 6px;
 }
 
 .tag .delete, .tag .modal-close {
